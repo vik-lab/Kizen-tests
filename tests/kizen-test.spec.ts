@@ -23,6 +23,8 @@ test('navigate to technology overview', async ({ page, home, footer }) => {
   await home.goto();
     // use footer methods to navigate
   await footer.clickTechnology();
-  //await footer.clickOverview();
+  //add additional wait as the page takes time to load
+  await page.waitForLoadState('networkidle');
+  //assertion to verify navigation
   await expect(await home.getTitle()).toContain('Kizen Supports Technology Teams');
 });
