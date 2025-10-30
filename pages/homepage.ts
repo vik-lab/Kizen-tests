@@ -6,7 +6,7 @@ export class HomePage {
   }
 
   async goto() {
-    await this.page.goto('https://kizen.com');
+    await this.page.goto('/');
   }
 
   async getTitle() {

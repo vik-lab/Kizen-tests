@@ -2,11 +2,13 @@ import { test as base, expect as baseExpect } from '@playwright/test';
 import { HomePage } from '../pages/homepage';
 import { Header } from '../pages/components/header';
 import { Footer } from '../pages/components/footer';
+import { ContactPage } from '../pages/contactpage';
 // ...existing code...
 type TestFixtures = {
   home: HomePage;
   header: Header;
   footer: Footer;
+  contactPage: ContactPage;
 };
 
 export const test = base.extend<TestFixtures>({
@@ -21,7 +23,11 @@ export const test = base.extend<TestFixtures>({
   footer: async ({ page }, use) => {
     await use(new Footer(page));
   },
+
+  contactPage: async ({ page }, use) => {
+    await use(new ContactPage(page));
+  },
+
 });
 
-// re-export Playwright expect directly
 export const expect = baseExpect;
