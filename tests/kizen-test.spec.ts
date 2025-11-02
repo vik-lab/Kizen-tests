@@ -2,13 +2,13 @@ import { test, expect } from '../fixtures/page-objects';
 import { ContactPage } from '../pages/contactpage';
 
 test('homepage title and header visible', async ({ home }) => {
-  await home.goto();
+  await home.goto('/');
   await expect(await home.getTitle()).toContain('Kizen');
 });
 
 //header methods test example
 test('navigate to sales form', async ({ page, home, header }) => {
-  await home.goto();
+  await home.goto('/contact-sales');
     // use header methods to navigate
   await header.clickPlatform();
   await page.getByRole('link', { name: 'Multi-Agent Orchestration Deploy a network of specially-trained AI labor to fit' }).click();
@@ -46,7 +46,7 @@ test('fill and submit contact form', async ({ page, contactPage }) => {
 
 //footer methods test example
 test('navigate to technology overview', async ({ page, home, footer }) => {
-  await home.goto();
+  await home.goto('/');
     // use footer methods to navigate
   await footer.clickTechnology();
   //add additional wait as the page takes time to load

@@ -5,7 +5,7 @@ export class HomePage {
   constructor(private page: Page) {
   }
 
-  async goto() {
+  async goto(p0: string) {
     await this.page.goto('/');
   }
 
